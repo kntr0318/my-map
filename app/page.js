@@ -8,11 +8,13 @@ export default function Home() {
 
   useEffect(() => {
     if (mapRef.current) return;
+    const styleUrl = `${process.env.NEXT_PUBLIC_MAP_STYLE}?key=${process.env.NEXT_PUBLIC_MAP_KEY}`;
+
     const map = new maplibregl.Map({
-      container: 'map',
-      style: 'https://demotiles.maplibre.org/style.json',
-      center: [139.7006, 35.6595], // 渋谷
-      zoom: 12
+    container: 'map',
+    style: styleUrl,              // ← これで道路・建物・ラベルがしっかり出ます
+    center: [139.7006, 35.6595],
+    zoom: 12
     });
     map.addControl(new maplibregl.NavigationControl(), 'top-right');
     map.on('load', () => setReady(true));
