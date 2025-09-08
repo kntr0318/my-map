@@ -1,5 +1,5 @@
 // app/api/pois/[[...route]]/route.js
-import app from '../../../api/pois/app.js';
+import app from '../../../../api/pois/app.js';
 
 export const runtime = 'edge';
 
