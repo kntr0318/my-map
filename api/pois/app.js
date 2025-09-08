@@ -90,4 +90,6 @@ app.get('/api/pois/nearby', async (c) => {
   });
 });
 
+app.all('/api/pois/*', (c) => c.json({ ok:false, msg:'no match', path: c.req.path }, 404));
+
 export default app;
